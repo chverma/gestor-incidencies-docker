@@ -1,16 +1,14 @@
 # emotion-docker-services
 ## Init project
-git submodule init
-git submodule update --recursive
+- git submodule init
+- git submodule update --recursive
 
 ## Copy env file
-cp {,.}env
-cp parts_incidencia/{,.}env
+- cp {,.}env
+- cp parts_incidencia/{,.}env
 ## Set variables
 In `parts_incidencia/.env` set the variables. Focus on the MYSQL password, it must be the one provided in this .env file.
 
-# Install npm packages
-(cd parts_incidencia && npm i)
 ## Build database
 docker-compose up -d && \
 DB_HOST=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gestor-incidencies-mysql) &&
